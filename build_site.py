@@ -95,7 +95,7 @@ def page(title, desc, path, body, extra_head=""):
 </main>
 <footer class="site-foot wrap">
   <nav aria-label="Footer"><a href="./">Home</a><a href="support.html">Support</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-service.html">Terms of Use</a><a href="mailto:{EMAIL}">Contact</a></nav>
-  <p>&copy; 2026 Jake Williams. Apple, iPhone, iPad and App Store are trademarks of Apple Inc. Map data from Apple Maps; forecasts from Apple Weather. Terrain: Copernicus DEM, &copy; DLR e.V. 2010&ndash;2014 and &copy; Airbus Defence and Space GmbH 2014&ndash;2018, provided under COPERNICUS by the European Union and ESA.</p>
+  <p>&copy; 2026 Jake Williams. Apple, iPhone, iPad and App Store are trademarks of Apple Inc. Map data from Apple Maps; forecasts from Apple Weather; tide predictions from NOAA. Terrain: Copernicus DEM, &copy; DLR e.V. 2010&ndash;2014 and &copy; Airbus Defence and Space GmbH 2014&ndash;2018, provided under COPERNICUS by the European Union and ESA.</p>
 </footer>
 </body>
 </html>
@@ -160,8 +160,8 @@ INDEX = f"""<section class="wrap hero">
 <section class="wrap" id="pricing" aria-labelledby="price-h">
   <div class="section-head"><h2 id="price-h">Free to start</h2><p>Tonight, planning, Find dates, the camera view and most tools are free. Pro is for the night shooters and the obsessive planners.</p></div>
   <div class="pricing">
-    <div class="card"><h3>Free</h3><div class="price">$0</div><ul><li>Tonight's verdict and every light band</li><li>Plan map with sun and moon lines</li><li>Find dates and matches</li><li>Camera view and Scout</li><li>Most calculators</li></ul></div>
-    <div class="card hi"><h3>Pro, yearly</h3><div class="price">$19.99 <small>/ year</small></div><ul><li>1-week free trial for new subscribers</li><li>Milky Way and light-pollution layers</li><li>Forecast alerts and cloud by height</li><li>More than one Field pack, tides</li><li>Polar alignment, star trails, time-lapse</li></ul></div>
+    <div class="card"><h3>Free</h3><div class="price">$0</div><ul><li>Tonight's verdict and every light band</li><li>Plan map with sun and moon lines, line of sight and clouds</li><li>Find dates and matches</li><li>Camera view and Scout</li><li>Most calculators</li></ul></div>
+    <div class="card hi"><h3>Pro, yearly</h3><div class="price">$19.99 <small>/ year</small></div><ul><li>1-week free trial for new subscribers</li><li>Milky Way, shadow and tide layers</li><li>Forecast alerts and cloud by height</li><li>More than one Field pack</li><li>NOAA tides, polar alignment, star trails, time-lapse</li><li>Apple Watch app</li></ul></div>
     <div class="card"><h3>Pro, once</h3><div class="price">$49.99</div><ul><li>Everything in Pro</li><li>One purchase, no subscription</li><li>Yours to keep</li></ul></div>
   </div>
   <p class="note" style="margin-top:16px">US prices; they may differ in your country. The yearly plan renews automatically unless cancelled at least 24 hours before it ends. Manage it in your Apple Account settings.</p>
@@ -203,6 +203,7 @@ PRIVACY = f"""<article class="legal">
 <tbody>
 <tr><td>Precise location</td><td>Sun and moon times and positions where you are, tonight's verdict, and the forecast.</td><td>Used on your device. Coordinates are sent to Apple Weather for the forecast and to Apple Maps for maps and place names. Not sent to us.</td></tr>
 <tr><td>Terrain</td><td>Ground heights for line of sight and for the spot and landmark you plan with.</td><td>Downloaded from the public Copernicus DEM files on Amazon Web Services. Requests name only the one-degree map square (about 100 km across), never your exact position, and carry no identifier. The files are kept on your device.</td></tr>
+<tr><td>Tides (Pro)</td><td>Tide heights for the place you plan at, on US coasts.</td><td>NOAA's station list is downloaded and the nearest station is chosen on your device. NOAA is asked only for that station's number and the dates; never your location. Predictions are kept on your device.</td></tr>
 <tr><td>Plans, places and gear</td><td>Your saved shoots, spots, cameras, lenses and settings.</td><td>Stored on your device. Widgets read them through a shared container on the same device.</td></tr>
 <tr><td>Camera (optional)</td><td>The camera view that shows where the sun and moon will be over the scene.</td><td>Shown live on your screen. Nothing is recorded or stored.</td></tr>
 <tr><td>Photos (optional)</td><td>Attaching the photo you took to a plan.</td><td>Only the photo you pick, kept on your device.</td></tr>
@@ -214,9 +215,9 @@ PRIVACY = f"""<article class="legal">
 <p>On the App Store, Predawn's privacy label lists one item, Precise Location, used for App Functionality, not linked to you and not used for tracking. It is listed because forecast requests to Apple Weather include coordinates.</p>
 <h2>3. Location</h2>
 <p>With your permission, Predawn uses your location to work out tonight's light, the sun and the moon where you are, and to request the forecast for that spot. You can refuse or withdraw permission at any time in Settings &gt; Privacy &amp; Security &gt; Location Services &gt; Predawn. Without it you can still choose any place by searching or dropping a pin.</p>
-<h2>4. Weather, maps and terrain</h2>
-<p>Forecasts come from Apple Weather (WeatherKit). Each request contains the coordinates of your location or a place you chose, and nothing that identifies you to us. Maps, place search, 3D views and Look Around use Apple Maps. Apple handles these requests under <a href="https://www.apple.com/legal/privacy/">its own privacy policy</a>. All sun and moon calculations, line of sight and tonight's verdict are worked out on your device.</p>
-<p>Hills and ridges come from Copernicus DEM, a free elevation model published by the European Union and ESA and hosted by Amazon Web Services. When you plan with a spot and a landmark, the app downloads the parts of the one-degree map squares they sit in. A request names the map square (for example "N39 W105") and a byte range, nothing that identifies you or your exact position; as with any download, Amazon sees the network address the request comes from. Amazon handles these requests under <a href="https://aws.amazon.com/privacy/">its own privacy notice</a>. Downloaded terrain is kept in the app's cache on your device.</p>
+<h2>4. Weather, maps, terrain and tides</h2>
+<p>Forecasts come from Apple Weather (WeatherKit). Each request contains the coordinates of your location or a place you chose, and nothing that identifies you to us. Maps, place search, 3D views and Look Around use Apple Maps. Apple handles these requests under <a href="https://www.apple.com/legal/privacy/">its own privacy policy</a>. Tide predictions (Pro) come from NOAA's public tide service: Predawn downloads NOAA's list of stations, picks the nearest one on your device, and asks NOAA only for that station's number and the dates you are looking at, never your location. All sun and moon calculations, line of sight, terrain shadows and tonight's verdict are worked out on your device.</p>
+<p>Hills and ridges come from Copernicus DEM, a free elevation model published by the European Union and ESA and hosted by Amazon Web Services. When you plan with a spot and a landmark, the app downloads the parts of the one-degree map squares they sit in. A request names the map square (for example "N39 W105") and a byte range, nothing that identifies you or your exact position; as with any download, Amazon sees the network address the request comes from. Amazon handles these requests under <a href="https://aws.amazon.com/privacy/">its own privacy notice</a>. Downloaded terrain is kept on your device (not backed up) so plans work without signal.</p>
 <h2>5. Notifications and alarms</h2>
 <p>Forecast re-checks, leave-now reminders and wake alarms are scheduled on your device. No push notification server is involved, and we do not know whether an alert was delivered or opened.</p>
 <h2>6. Purchases</h2>
@@ -307,7 +308,7 @@ FAQ = [
   ("Will my plan work with no signal?", "Yes. Times, positions, line of sight and the timeline are saved with the plan. Maps you haven't viewed may not load offline."),
  ]),
  ("Predawn Pro", [
-  ("What does Pro add?", "Milky Way and light-pollution layers, forecast alerts and cloud by height, more than one Field pack, tides, polar alignment, star trails and time-lapse."),
+  ("What does Pro add?", "Milky Way core, terrain shadow and tide layers on the map, forecast alerts and cloud by height, more than one Field pack, NOAA tide predictions for US coasts, polar alignment, star trails, time-lapse and the Apple Watch app."),
   ("How do I restore a purchase?", "Open the Pro screen from Settings and tap Restore Purchases. Use the same Apple Account you bought with."),
   ("How do I cancel the yearly plan?", "In Settings > [your name] > Subscriptions on your iPhone, at least 24 hours before it renews."),
  ]),
