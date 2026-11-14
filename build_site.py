@@ -6,7 +6,7 @@ BASE = "https://jakeintech.github.io/predawn-site/"
 APP_ID = "6834539845"
 STORE = f"https://apps.apple.com/app/id{APP_ID}"
 EMAIL = "info@jakeawilliams.com"
-UPDATED = "November 13, 2026"
+UPDATED = "November 14, 2026"
 
 CSS = """:root{--bg:#0B0B12;--bg2:#15151F;--bg3:#1E1E2A;--label:#F5F5F7;--label2:#AEAEBA;--label3:#7C7C8A;--accent:#D6F45A;--onaccent:#0B0B12;--sep:rgba(255,255,255,.10);--golden:#FFB340;--blue:#7D7AFF;color-scheme:dark}
 @media (prefers-color-scheme:light){:root{--bg:#F7F7F9;--bg2:#FFFFFF;--bg3:#EFEFF4;--label:#0B0B12;--label2:#4A4A55;--label3:#6E6E78;--accent:#566A00;--onaccent:#FFFFFF;--sep:rgba(0,0,0,.10);color-scheme:light}}
@@ -95,7 +95,7 @@ def page(title, desc, path, body, extra_head=""):
 </main>
 <footer class="site-foot wrap">
   <nav aria-label="Footer"><a href="./">Home</a><a href="support.html">Support</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-service.html">Terms of Use</a><a href="mailto:{EMAIL}">Contact</a></nav>
-  <p>&copy; 2026 Jake Williams. Apple, iPhone, iPad and App Store are trademarks of Apple Inc. Map data from Apple Maps; forecasts from Apple Weather.</p>
+  <p>&copy; 2026 Jake Williams. Apple, iPhone, iPad and App Store are trademarks of Apple Inc. Map data from Apple Maps; forecasts from Apple Weather. Terrain: Copernicus DEM, &copy; DLR e.V. 2010&ndash;2014 and &copy; Airbus Defence and Space GmbH 2014&ndash;2018, provided under COPERNICUS by the European Union and ESA.</p>
 </footer>
 </body>
 </html>
@@ -173,7 +173,7 @@ INDEX = f"""<section class="wrap hero">
     <div class="card"><h3>No account</h3><p>Nothing to sign up for.</p></div>
     <div class="card"><h3>On your iPhone</h3><p>Plans, places and gear stay on the device.</p></div>
     <div class="card"><h3>No tracking</h3><p>No ads, no analytics, no third-party code.</p></div>
-    <div class="card"><h3>Apple services only</h3><p>Forecasts from Apple Weather, maps from Apple Maps.</p></div>
+    <div class="card"><h3>No server of ours</h3><p>Forecasts from Apple Weather, maps from Apple Maps, terrain from public Copernicus files. Only Apple sees your exact spot.</p></div>
   </div>
   <p class="note" style="margin-top:16px"><a href="privacy-policy.html">Read the privacy policy</a></p>
 </section>
@@ -202,6 +202,7 @@ PRIVACY = f"""<article class="legal">
 <thead><tr><th>Information</th><th>What it is used for</th><th>Where it goes</th></tr></thead>
 <tbody>
 <tr><td>Precise location</td><td>Sun and moon times and positions where you are, tonight's verdict, and the forecast.</td><td>Used on your device. Coordinates are sent to Apple Weather for the forecast and to Apple Maps for maps and place names. Not sent to us.</td></tr>
+<tr><td>Terrain</td><td>Ground heights for line of sight and for the spot and landmark you plan with.</td><td>Downloaded from the public Copernicus DEM files on Amazon Web Services. Requests name only the one-degree map square (about 100 km across), never your exact position, and carry no identifier. The files are kept on your device.</td></tr>
 <tr><td>Plans, places and gear</td><td>Your saved shoots, spots, cameras, lenses and settings.</td><td>Stored on your device. Widgets read them through a shared container on the same device.</td></tr>
 <tr><td>Camera (optional)</td><td>The camera view that shows where the sun and moon will be over the scene.</td><td>Shown live on your screen. Nothing is recorded or stored.</td></tr>
 <tr><td>Photos (optional)</td><td>Attaching the photo you took to a plan.</td><td>Only the photo you pick, kept on your device.</td></tr>
@@ -213,8 +214,9 @@ PRIVACY = f"""<article class="legal">
 <p>On the App Store, Predawn's privacy label lists one item, Precise Location, used for App Functionality, not linked to you and not used for tracking. It is listed because forecast requests to Apple Weather include coordinates.</p>
 <h2>3. Location</h2>
 <p>With your permission, Predawn uses your location to work out tonight's light, the sun and the moon where you are, and to request the forecast for that spot. You can refuse or withdraw permission at any time in Settings &gt; Privacy &amp; Security &gt; Location Services &gt; Predawn. Without it you can still choose any place by searching or dropping a pin.</p>
-<h2>4. Weather and maps</h2>
+<h2>4. Weather, maps and terrain</h2>
 <p>Forecasts come from Apple Weather (WeatherKit). Each request contains the coordinates of your location or a place you chose, and nothing that identifies you to us. Maps, place search, 3D views and Look Around use Apple Maps. Apple handles these requests under <a href="https://www.apple.com/legal/privacy/">its own privacy policy</a>. All sun and moon calculations, line of sight and tonight's verdict are worked out on your device.</p>
+<p>Hills and ridges come from Copernicus DEM, a free elevation model published by the European Union and ESA and hosted by Amazon Web Services. When you plan with a spot and a landmark, the app downloads the parts of the one-degree map squares they sit in. A request names the map square (for example "N39 W105") and a byte range, nothing that identifies you or your exact position; as with any download, Amazon sees the network address the request comes from. Amazon handles these requests under <a href="https://aws.amazon.com/privacy/">its own privacy notice</a>. Downloaded terrain is kept in the app's cache on your device.</p>
 <h2>5. Notifications and alarms</h2>
 <p>Forecast re-checks, leave-now reminders and wake alarms are scheduled on your device. No push notification server is involved, and we do not know whether an alert was delivered or opened.</p>
 <h2>6. Purchases</h2>
@@ -296,7 +298,7 @@ FAQ = [
  ("Planning", [
   ("How do I line up the moon with a landmark?", "Tap Find dates. Choose the sun or the moon, rising or setting, the landmark you want it behind, and where you can stand. Predawn searches the next year and lists every match, best light first, with how far to step to centre it."),
   ("What does \"stand 35 ft to the right\" mean?", "On that date the moon reaches the landmark a little to one side. Move that far, sideways to the line between you and the landmark, and it sits dead centre."),
-  ("How does line of sight work?", "It checks the ground between you and the horizon in the direction of the sun or moon and tells you the margin, and the minute it clears anything in the way. In places without terrain data, enter the height of what's in front of you."),
+  ("How does line of sight work?", "It checks the ground between you and the horizon in the direction of the sun or moon and tells you the margin, and the minute it clears anything in the way. Terrain comes from Copernicus DEM, downloaded for the area you plan in and kept for use offline. If it can't load, Predawn says so and treats both ends as level ground; you can also enter the height of what's in front of you."),
   ("Does the camera view work everywhere?", "It needs a device with a camera and works best after a short calibration: point at the sun or moon to lock the compass. Without a camera, use Scout's 3D view instead."),
  ]),
  ("Alerts and the field", [
