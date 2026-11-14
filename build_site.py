@@ -162,7 +162,7 @@ INDEX = f"""<section class="wrap hero">
   <div class="pricing">
     <div class="card"><h3>Free</h3><div class="price">$0</div><ul><li>Tonight's verdict and every light band</li><li>Plan map with sun and moon lines, line of sight and clouds</li><li>Find dates and matches</li><li>Camera view and Scout</li><li>Most calculators</li></ul></div>
     <div class="card hi"><h3>Pro, yearly</h3><div class="price">$19.99 <small>/ year</small></div><ul><li>1-week free trial for new subscribers</li><li>Milky Way, shadow and tide layers</li><li>Forecast alerts and cloud by height</li><li>More than one Field pack</li><li>NOAA tides, polar alignment, star trails, time-lapse</li><li>Apple Watch app</li></ul></div>
-    <div class="card"><h3>Pro, once</h3><div class="price">$49.99</div><ul><li>Everything in Pro</li><li>One purchase, no subscription</li><li>Yours to keep</li></ul></div>
+    <div class="card"><h3>Pro, once</h3><div class="price">$39.99</div><ul><li>Everything in Pro</li><li>One purchase, no subscription</li><li>Yours to keep</li></ul></div>
   </div>
   <p class="note" style="margin-top:16px">US prices; they may differ in your country. The yearly plan renews automatically unless cancelled at least 24 hours before it ends. Manage it in your Apple Account settings.</p>
 </section>
@@ -261,7 +261,7 @@ TERMS = f"""<article class="legal">
 <p>Predawn is free to download and use. Predawn Pro unlocks extra features and is offered in two ways:</p>
 <ul>
 <li><strong>Yearly:</strong> $19.99 per year, renewing each year until cancelled, with a one-week free trial for eligible new subscribers.</li>
-<li><strong>Once:</strong> $49.99. It does not renew and unlocks Pro for as long as the app is offered.</li>
+<li><strong>Once:</strong> $39.99. It does not renew and unlocks Pro for as long as the app is offered.</li>
 </ul>
 <p>Prices are for the United States and may differ elsewhere. Payment is charged to your Apple Account when you confirm the purchase. The subscription renews automatically unless you turn off auto-renew at least 24 hours before the end of the current period. Manage or cancel it in your App Store account settings. If you start a free trial and do not cancel before it ends, it becomes a paid subscription. Any unused part of a free trial is forfeited when you buy a subscription. Refunds are handled by Apple under its policies.</p>
 <h2>6. Acceptable use and safety</h2>
