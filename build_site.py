@@ -6,7 +6,7 @@ BASE = "https://jakeintech.github.io/predawn-site/"
 APP_ID = "6834539845"
 STORE = f"https://apps.apple.com/app/id{APP_ID}"
 EMAIL = "info@jakeawilliams.com"
-UPDATED = "November 14, 2026"
+UPDATED = "November 16, 2026"
 
 CSS = """:root{--bg:#0B0B12;--bg2:#15151F;--bg3:#1E1E2A;--label:#F5F5F7;--label2:#AEAEBA;--label3:#7C7C8A;--accent:#D6F45A;--onaccent:#0B0B12;--sep:rgba(255,255,255,.10);--golden:#FFB340;--blue:#7D7AFF;color-scheme:dark}
 @media (prefers-color-scheme:light){:root{--bg:#F7F7F9;--bg2:#FFFFFF;--bg3:#EFEFF4;--label:#0B0B12;--label2:#4A4A55;--label3:#6E6E78;--accent:#566A00;--onaccent:#FFFFFF;--sep:rgba(0,0,0,.10);color-scheme:light}}
@@ -95,7 +95,7 @@ def page(title, desc, path, body, extra_head=""):
 </main>
 <footer class="site-foot wrap">
   <nav aria-label="Footer"><a href="./">Home</a><a href="support.html">Support</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-service.html">Terms of Use</a><a href="mailto:{EMAIL}">Contact</a></nav>
-  <p>&copy; 2026 Jake Williams. Apple, iPhone, iPad and App Store are trademarks of Apple Inc. Map data from Apple Maps; forecasts from Apple Weather; tide predictions from NOAA. Terrain: Copernicus DEM, &copy; DLR e.V. 2010&ndash;2014 and &copy; Airbus Defence and Space GmbH 2014&ndash;2018, provided under COPERNICUS by the European Union and ESA.</p>
+  <p>&copy; 2026 Jake Williams. Apple, iPhone, iPad and App Store are trademarks of Apple Inc. Map data from Apple Maps; forecasts from Apple Weather; tide predictions from NOAA; building heights &copy; OpenStreetMap contributors (ODbL) and from Wikidata (CC0). Terrain: Copernicus DEM, &copy; DLR e.V. 2010&ndash;2014 and &copy; Airbus Defence and Space GmbH 2014&ndash;2018, provided under COPERNICUS by the European Union and ESA.</p>
 </footer>
 </body>
 </html>
@@ -203,6 +203,7 @@ PRIVACY = f"""<article class="legal">
 <tbody>
 <tr><td>Precise location</td><td>Sun and moon times and positions where you are, tonight's verdict, and the forecast.</td><td>Used on your device. Coordinates are sent to Apple Weather for the forecast and to Apple Maps for maps and place names. Not sent to us.</td></tr>
 <tr><td>Terrain</td><td>Ground heights for line of sight and for the spot and landmark you plan with.</td><td>Downloaded from the public Copernicus DEM files on Amazon Web Services. Requests name only the one-degree map square (about 100 km across), never your exact position, and carry no identifier. The files are kept on your device.</td></tr>
+<tr><td>Landmark heights</td><td>How tall a building or landmark you plan with is, so the angles are right.</td><td>When a landmark you chose has no height yet, its coordinates are sent to OpenStreetMap (Overpass) and, if that finds nothing, to Wikidata. Only the landmark&rsquo;s position is sent: not its name, not your location, and no identifier. The height is kept on your device.</td></tr>
 <tr><td>Tides (Pro)</td><td>Tide heights for the place you plan at, on US coasts.</td><td>NOAA's station list is downloaded and the nearest station is chosen on your device. NOAA is asked only for that station's number and the dates; never your location. Predictions are kept on your device.</td></tr>
 <tr><td>Plans, places and gear</td><td>Your saved shoots, spots, cameras, lenses and settings.</td><td>Stored on your device. Widgets read them through a shared container on the same device.</td></tr>
 <tr><td>Camera (optional)</td><td>The camera view that shows where the sun and moon will be over the scene.</td><td>Shown live on your screen. Nothing is recorded or stored.</td></tr>
@@ -215,9 +216,10 @@ PRIVACY = f"""<article class="legal">
 <p>On the App Store, Predawn's privacy label lists one item, Precise Location, used for App Functionality, not linked to you and not used for tracking. It is listed because forecast requests to Apple Weather include coordinates.</p>
 <h2>3. Location</h2>
 <p>With your permission, Predawn uses your location to work out tonight's light, the sun and the moon where you are, and to request the forecast for that spot. You can refuse or withdraw permission at any time in Settings &gt; Privacy &amp; Security &gt; Location Services &gt; Predawn. Without it you can still choose any place by searching or dropping a pin.</p>
-<h2>4. Weather, maps, terrain and tides</h2>
+<h2>4. Weather, maps, terrain, landmark heights and tides</h2>
 <p>Forecasts come from Apple Weather (WeatherKit). Each request contains the coordinates of your location or a place you chose, and nothing that identifies you to us. Maps, place search, 3D views and Look Around use Apple Maps. Apple handles these requests under <a href="https://www.apple.com/legal/privacy/">its own privacy policy</a>. Tide predictions (Pro) come from NOAA's public tide service: Predawn downloads NOAA's list of stations, picks the nearest one on your device, and asks NOAA only for that station's number and the dates you are looking at, never your location. All sun and moon calculations, line of sight, terrain shadows and tonight's verdict are worked out on your device.</p>
 <p>Hills and ridges come from Copernicus DEM, a free elevation model published by the European Union and ESA and hosted by Amazon Web Services. When you plan with a spot and a landmark, the app downloads the parts of the one-degree map squares they sit in. A request names the map square (for example "N39 W105") and a byte range, nothing that identifies you or your exact position; as with any download, Amazon sees the network address the request comes from. Amazon handles these requests under <a href="https://aws.amazon.com/privacy/">its own privacy notice</a>. Downloaded terrain is kept on your device (not backed up) so plans work without signal.</p>
+<p>Landmark heights come from OpenStreetMap and Wikidata. When you make a building or landmark the subject of a plan and Predawn doesn&rsquo;t know its height, it asks the public OpenStreetMap Overpass service (overpass-api.de) for buildings within about 150&nbsp;m of the landmark&rsquo;s coordinates, and if none has a height, asks the Wikidata Query Service (query.wikidata.org, run by the Wikimedia Foundation) the same about tagged heights nearby. The request contains only those coordinates and the app&rsquo;s name and version; picking the right building happens on your device. Each landmark is looked up once, and a height you type yourself is never replaced. As with any download, these services see the network address the request comes from and handle it under their own privacy policies.</p>
 <h2>5. Notifications and alarms</h2>
 <p>Forecast re-checks, leave-now reminders and wake alarms are scheduled on your device. No push notification server is involved, and we do not know whether an alert was delivered or opened.</p>
 <h2>6. Purchases</h2>
