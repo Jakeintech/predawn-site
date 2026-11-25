@@ -1,24 +1,26 @@
-:root{--bg:#0B0B12;--bg2:#15151F;--bg3:#1E1E2A;--label:#F5F5F7;--label2:#AEAEBA;--label3:#7C7C8A;--accent:#D6F45A;--onaccent:#0B0B12;--sep:rgba(255,255,255,.10);--golden:#FFB340;--blue:#7D7AFF;color-scheme:dark}
-@media (prefers-color-scheme:light){:root{--bg:#F7F7F9;--bg2:#FFFFFF;--bg3:#EFEFF4;--label:#0B0B12;--label2:#4A4A55;--label3:#6E6E78;--accent:#566A00;--onaccent:#FFFFFF;--sep:rgba(0,0,0,.10);color-scheme:light}}
+:root{--bg:#0B0B12;--bg2:#15151F;--bg3:#1E1E2A;--label:#F5F5F7;--label2:#AEAEBA;--label3:#7C7C8A;--accent:#FFFFFF;--onaccent:#000000;--sep:rgba(255,255,255,.10);--golden:#FFB340;--blue:#7D7AFF;color-scheme:dark}
+@media (prefers-color-scheme:light){:root{--bg:#F7F7F9;--bg2:#FFFFFF;--bg3:#EFEFF4;--label:#0B0B12;--label2:#4A4A55;--label3:#6E6E78;--accent:#000000;--onaccent:#FFFFFF;--sep:rgba(0,0,0,.10);color-scheme:light}}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--label);font:17px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif}
 a{color:var(--accent)}a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
 .skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:var(--onaccent);padding:8px 14px;border-radius:999px;z-index:9}.skip:focus{left:16px}
 .wrap{max-width:1080px;margin-left:auto;margin-right:auto;padding-left:20px;padding-right:20px}
 .site-head{display:flex;align-items:center;justify-content:space-between;padding-top:18px;padding-bottom:18px}
-.brand{display:flex;align-items:center;gap:10px;font:700 20px/1 ui-rounded,"SF Pro Rounded",-apple-system,sans-serif;color:var(--label);text-decoration:none}
+.brand{display:flex;align-items:center;gap:10px;font:800 20px/1 -apple-system,BlinkMacSystemFont,sans-serif;color:var(--label);text-decoration:none}
 .brand img{border-radius:8px}
 .site-nav{display:flex;gap:20px;align-items:center}.site-nav a{color:var(--label2);text-decoration:none;font-weight:500}.site-nav a:hover{color:var(--label)}.site-nav a.btn{color:var(--onaccent);min-height:44px;padding:0 18px}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:999px;background:var(--accent);color:var(--onaccent);font-weight:600;text-decoration:none}
 .btn.ghost{background:var(--bg3);color:var(--label)}
-.hero{padding-top:56px;padding-bottom:40px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.sky{background:#0B0B12 url(sky.webp) center/cover no-repeat;color:#fff;position:relative}.sky::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,6,15,.72),rgba(4,6,15,.15) 70%);pointer-events:none}
+.sky>*{position:relative;z-index:1}.sky .lede,.sky .eyebrow,.sky .note{color:rgba(255,255,255,.82)}.sky .btn{background:#fff;color:#000}
+.hero{padding-top:72px;padding-bottom:72px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
 .eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--label2)}
-h1{font:800 clamp(40px,6vw,68px)/1.02 ui-rounded,"SF Pro Rounded",-apple-system,sans-serif;letter-spacing:-.02em;margin:12px 0 18px}
-h2{font:700 clamp(28px,3.6vw,40px)/1.1 ui-rounded,"SF Pro Rounded",-apple-system,sans-serif;letter-spacing:-.01em;margin:0 0 12px}
+h1{font:800 clamp(44px,7vw,84px)/.98 -apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;letter-spacing:-.035em;margin:12px 0 18px}
+h2{font:800 clamp(30px,4vw,46px)/1.05 -apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;letter-spacing:-.025em;margin:0 0 12px}
 h3{font-size:20px;margin:0 0 6px}
 .lede{font-size:20px;color:var(--label2);max-width:34ch;margin:0 0 28px}
 .cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}.note{color:var(--label3);font-size:15px}
-.phone{width:100%;max-width:340px;justify-self:center;border-radius:44px;box-shadow:0 0 0 1px var(--sep),0 30px 80px rgba(0,0,0,.45)}
+.phone{width:100%;max-width:340px;justify-self:center;border-radius:44px;box-shadow:0 0 0 1px rgba(255,255,255,.14),0 30px 80px rgba(0,0,0,.55)}
 section{padding-top:56px;padding-bottom:56px}.section-head{max-width:620px;margin-bottom:28px}.section-head p{color:var(--label2);margin:0}
 .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .card{background:var(--bg2);border-radius:26px;padding:22px;box-shadow:inset 0 0 0 1px var(--sep)}
@@ -28,10 +30,10 @@ section{padding-top:56px;padding-bottom:56px}.section-head{max-width:620px;margi
 .shot figcaption{margin-top:12px}.shot figcaption b{display:block}.shot figcaption span{color:var(--label2);font-size:15px}
 .tools{columns:2;gap:28px;padding:0;margin:0;list-style:none}.tools li{break-inside:avoid;padding:8px 0;border-bottom:1px solid var(--sep)}
 .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.price{font:700 34px/1.1 ui-rounded,"SF Pro Rounded",-apple-system,sans-serif;margin:8px 0}
+.price{font:800 34px/1.1 -apple-system,BlinkMacSystemFont,sans-serif;margin:8px 0}
 .price small{font-size:16px;color:var(--label2);font-weight:500}
 .card ul{margin:12px 0 0;padding-left:20px;color:var(--label2)}
-.card.hi{box-shadow:inset 0 0 0 2px var(--accent)}
+.card.hi{background:var(--label);color:var(--bg)}.card.hi p,.card.hi ul,.card.hi .price small{color:var(--bg);opacity:.8}
 .privacy{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .legal{max-width:760px;padding:40px 20px 72px}.legal h1{font-size:44px}.legal h2{font-size:24px;margin-top:36px}
 .legal p,.legal li{color:var(--label2)}.legal strong{color:var(--label)}

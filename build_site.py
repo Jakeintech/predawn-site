@@ -6,29 +6,31 @@ BASE = "https://jakeintech.github.io/predawn-site/"
 APP_ID = "6834539845"
 STORE = f"https://apps.apple.com/app/id{APP_ID}"
 EMAIL = "info@jakeawilliams.com"
-UPDATED = "November 16, 2026"
+UPDATED = "November 25, 2026"
 
-CSS = """:root{--bg:#0B0B12;--bg2:#15151F;--bg3:#1E1E2A;--label:#F5F5F7;--label2:#AEAEBA;--label3:#7C7C8A;--accent:#D6F45A;--onaccent:#0B0B12;--sep:rgba(255,255,255,.10);--golden:#FFB340;--blue:#7D7AFF;color-scheme:dark}
-@media (prefers-color-scheme:light){:root{--bg:#F7F7F9;--bg2:#FFFFFF;--bg3:#EFEFF4;--label:#0B0B12;--label2:#4A4A55;--label3:#6E6E78;--accent:#566A00;--onaccent:#FFFFFF;--sep:rgba(0,0,0,.10);color-scheme:light}}
+CSS = """:root{--bg:#0B0B12;--bg2:#15151F;--bg3:#1E1E2A;--label:#F5F5F7;--label2:#AEAEBA;--label3:#7C7C8A;--accent:#FFFFFF;--onaccent:#000000;--sep:rgba(255,255,255,.10);--golden:#FFB340;--blue:#7D7AFF;color-scheme:dark}
+@media (prefers-color-scheme:light){:root{--bg:#F7F7F9;--bg2:#FFFFFF;--bg3:#EFEFF4;--label:#0B0B12;--label2:#4A4A55;--label3:#6E6E78;--accent:#000000;--onaccent:#FFFFFF;--sep:rgba(0,0,0,.10);color-scheme:light}}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--label);font:17px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif}
 a{color:var(--accent)}a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
 .skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:var(--onaccent);padding:8px 14px;border-radius:999px;z-index:9}.skip:focus{left:16px}
 .wrap{max-width:1080px;margin-left:auto;margin-right:auto;padding-left:20px;padding-right:20px}
 .site-head{display:flex;align-items:center;justify-content:space-between;padding-top:18px;padding-bottom:18px}
-.brand{display:flex;align-items:center;gap:10px;font:700 20px/1 ui-rounded,"SF Pro Rounded",-apple-system,sans-serif;color:var(--label);text-decoration:none}
+.brand{display:flex;align-items:center;gap:10px;font:800 20px/1 -apple-system,BlinkMacSystemFont,sans-serif;color:var(--label);text-decoration:none}
 .brand img{border-radius:8px}
 .site-nav{display:flex;gap:20px;align-items:center}.site-nav a{color:var(--label2);text-decoration:none;font-weight:500}.site-nav a:hover{color:var(--label)}.site-nav a.btn{color:var(--onaccent);min-height:44px;padding:0 18px}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:999px;background:var(--accent);color:var(--onaccent);font-weight:600;text-decoration:none}
 .btn.ghost{background:var(--bg3);color:var(--label)}
-.hero{padding-top:56px;padding-bottom:40px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.sky{background:#0B0B12 url(sky.webp) center/cover no-repeat;color:#fff;position:relative}.sky::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,6,15,.72),rgba(4,6,15,.15) 70%);pointer-events:none}
+.sky>*{position:relative;z-index:1}.sky .lede,.sky .eyebrow,.sky .note{color:rgba(255,255,255,.82)}.sky .btn{background:#fff;color:#000}
+.hero{padding-top:72px;padding-bottom:72px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
 .eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--label2)}
-h1{font:800 clamp(40px,6vw,68px)/1.02 ui-rounded,"SF Pro Rounded",-apple-system,sans-serif;letter-spacing:-.02em;margin:12px 0 18px}
-h2{font:700 clamp(28px,3.6vw,40px)/1.1 ui-rounded,"SF Pro Rounded",-apple-system,sans-serif;letter-spacing:-.01em;margin:0 0 12px}
+h1{font:800 clamp(44px,7vw,84px)/.98 -apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;letter-spacing:-.035em;margin:12px 0 18px}
+h2{font:800 clamp(30px,4vw,46px)/1.05 -apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;letter-spacing:-.025em;margin:0 0 12px}
 h3{font-size:20px;margin:0 0 6px}
 .lede{font-size:20px;color:var(--label2);max-width:34ch;margin:0 0 28px}
 .cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}.note{color:var(--label3);font-size:15px}
-.phone{width:100%;max-width:340px;justify-self:center;border-radius:44px;box-shadow:0 0 0 1px var(--sep),0 30px 80px rgba(0,0,0,.45)}
+.phone{width:100%;max-width:340px;justify-self:center;border-radius:44px;box-shadow:0 0 0 1px rgba(255,255,255,.14),0 30px 80px rgba(0,0,0,.55)}
 section{padding-top:56px;padding-bottom:56px}.section-head{max-width:620px;margin-bottom:28px}.section-head p{color:var(--label2);margin:0}
 .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .card{background:var(--bg2);border-radius:26px;padding:22px;box-shadow:inset 0 0 0 1px var(--sep)}
@@ -38,10 +40,10 @@ section{padding-top:56px;padding-bottom:56px}.section-head{max-width:620px;margi
 .shot figcaption{margin-top:12px}.shot figcaption b{display:block}.shot figcaption span{color:var(--label2);font-size:15px}
 .tools{columns:2;gap:28px;padding:0;margin:0;list-style:none}.tools li{break-inside:avoid;padding:8px 0;border-bottom:1px solid var(--sep)}
 .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.price{font:700 34px/1.1 ui-rounded,"SF Pro Rounded",-apple-system,sans-serif;margin:8px 0}
+.price{font:800 34px/1.1 -apple-system,BlinkMacSystemFont,sans-serif;margin:8px 0}
 .price small{font-size:16px;color:var(--label2);font-weight:500}
 .card ul{margin:12px 0 0;padding-left:20px;color:var(--label2)}
-.card.hi{box-shadow:inset 0 0 0 2px var(--accent)}
+.card.hi{background:var(--label);color:var(--bg)}.card.hi p,.card.hi ul,.card.hi .price small{color:var(--bg);opacity:.8}
 .privacy{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .legal{max-width:760px;padding:40px 20px 72px}.legal h1{font-size:44px}.legal h2{font-size:24px;margin-top:36px}
 .legal p,.legal li{color:var(--label2)}.legal strong{color:var(--label)}
@@ -64,7 +66,7 @@ def page(title, desc, path, body, extra_head=""):
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <meta name="apple-itunes-app" content="app-id={APP_ID}">
-<meta name="theme-color" content="#0B0B12">
+<meta name="theme-color" content="#04060F">
 <link rel="canonical" href="{BASE}{path}">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -107,12 +109,12 @@ LD = f"""<script type="application/ld+json">
 """
 
 SHOTS = [
-    ("tonight", "Is tonight worth it?", "Moon, darkness and cloud in one answer, with every light band to the minute."),
-    ("finddates", "Describe the shot", "Full moon behind the lighthouse? Say so, and get the dates it lines up."),
-    ("planner", "Where to stand", "Sun and moon lines on the map, your lens, your minute, to the foot."),
-    ("scout", "See it before you go", "A 3D view from your spot with the light at the minute you chose."),
-    ("rednight", "Red night", "Keeps your eyes dark-adapted when the shoot starts."),
-    ("offline", "Ready with no signal", "Timeline, line of sight and alerts, saved with the plan."),
+    ("detail", "Catch the moon there", "Each plan opens on its own sky: the minute, the moon where it will be, and the day around it."),
+    ("matches", "Every date it lines up", "Full moon behind the lighthouse? Say so, and get every date in the year, best light first."),
+    ("planner", "Stand exactly here", "Sun and moon lines on the map, your lens, your minute, to the foot."),
+    ("tonight", "Know the sky first", "Go, Check or No for tonight, with the moon, true darkness and cloud by the hour."),
+    ("saved", "Every shot, its own sky", "Your plans, each drawn in the light of its minute, with the forecast as it firms up."),
+    ("rednight", "Keep your night vision", "Red night keeps your eyes adapted, and the maps stay readable."),
 ]
 TOOLS = ["Long exposure (ND filters)", "Sharp stars (NPF and 500 rule)", "Star trails", "Time-lapse", "Exposure match",
          "Sun and moon exposure", "Hyperfocal distance", "Depth of field", "Focus stacking", "Field of view",
@@ -121,15 +123,15 @@ TOOLS = ["Long exposure (ND filters)", "Sharp stars (NPF and 500 rule)", "Star t
 shots_html = "\n".join(f"""  <div class="shot"><figure><img src="assets/shot-{s}.webp" alt="Predawn {t.lower()} screen" width="440" height="956" loading="lazy"><figcaption><b>{t}</b><span>{d}</span></figcaption></figure></div>""" for s, t, d in SHOTS)
 tools_html = "\n".join(f"    <li>{t}</li>" for t in TOOLS)
 
-INDEX = f"""<section class="wrap hero">
+INDEX = f"""<div class="sky"><section class="wrap hero">
   <div>
     <span class="eyebrow">Sun &amp; moon photo planner for iPhone</span>
     <h1>Know the minute.</h1>
     <p class="lede">Pick a landmark, choose the sun or the moon, and Predawn finds the dates it lines up, where to stand and what to dial in. Then it checks the sky and gets you there on time.</p>
     <div class="cta"><a class="btn" href="{STORE}">Download on the App Store</a><span class="note">Free to start. No account.</span></div>
   </div>
-  <img class="phone" src="assets/shot-planner.webp" alt="Predawn's plan map: the full moon lined up behind Portland Head Light at 4:23 PM, seen from Ship Cove" width="440" height="956">
-</section>
+  <img class="phone" src="assets/shot-detail.webp" alt="A Predawn plan: full moon behind the lighthouse at 4:23 PM on Tuesday, November 24, drawn in that minute's sky" width="440" height="956">
+</section></div>
 
 <section class="wrap" aria-labelledby="how">
   <div class="section-head"><h2 id="how">Plan the picture, not the paperwork</h2><p>Most planners give you a map full of lines and leave the maths to you. Predawn starts with the answer.</p></div>
@@ -144,7 +146,7 @@ INDEX = f"""<section class="wrap hero">
 </section>
 
 <section class="wrap" aria-labelledby="look">
-  <div class="section-head"><h2 id="look">A look inside</h2><p>Real screens from the app, planning a full moon behind Portland Head Light, Maine.</p></div>
+  <div class="section-head"><h2 id="look">A look inside</h2><p>Real screens from the app, planning a full moon behind Portland Head Light, Maine. Each plan is drawn in the sky of its own minute.</p></div>
   <div class="shots">
 {shots_html}
   </div>
@@ -203,11 +205,11 @@ PRIVACY = f"""<article class="legal">
 <tbody>
 <tr><td>Precise location</td><td>Sun and moon times and positions where you are, tonight's verdict, and the forecast.</td><td>Used on your device. Coordinates are sent to Apple Weather for the forecast and to Apple Maps for maps and place names. Not sent to us.</td></tr>
 <tr><td>Terrain</td><td>Ground heights for line of sight and for the spot and landmark you plan with.</td><td>Downloaded from the public Copernicus DEM files on Amazon Web Services. Requests name only the one-degree map square (about 100 km across), never your exact position, and carry no identifier. The files are kept on your device.</td></tr>
-<tr><td>Landmark heights</td><td>How tall a building or landmark you plan with is, so the angles are right.</td><td>When a landmark you chose has no height yet, its coordinates are sent to OpenStreetMap (Overpass) and, if that finds nothing, to Wikidata. Only the landmark&rsquo;s position is sent: not its name, not your location, and no identifier. The height is kept on your device.</td></tr>
 <tr><td>Tides (Pro)</td><td>Tide heights for the place you plan at, on US coasts.</td><td>NOAA's station list is downloaded and the nearest station is chosen on your device. NOAA is asked only for that station's number and the dates; never your location. Predictions are kept on your device.</td></tr>
+<tr><td>Landmark heights</td><td>How tall a building or landmark you plan with is, so the angles are right.</td><td>When a landmark you chose has no height yet, its coordinates are sent to OpenStreetMap (Overpass) and, if that finds nothing, to Wikidata. Only the landmark&rsquo;s position is sent: not its name, not your location, and no identifier. The height is kept on your device.</td></tr>
 <tr><td>Plans, places and gear</td><td>Your saved shoots, spots, cameras, lenses and settings.</td><td>Stored on your device. Widgets read them through a shared container on the same device.</td></tr>
-<tr><td>Camera (optional)</td><td>The camera view that shows where the sun and moon will be over the scene.</td><td>Shown live on your screen. Nothing is recorded or stored.</td></tr>
-<tr><td>Photos (optional)</td><td>Attaching the photo you took to a plan.</td><td>Only the photo you pick, kept on your device.</td></tr>
+<tr><td>Camera (optional)</td><td>The camera view that shows where the sun and moon will be over the scene, and Shoot, which takes the photos you plan.</td><td>The camera view is shown live on your screen and records nothing. Photos you take with Shoot are saved to your photo library on your device, with the spot's location and the plan's name written into the file. They are never uploaded or sent to us.</td></tr>
+<tr><td>Photos (optional)</td><td>Saving the photos you take with Shoot, and attaching the photo you took to a plan.</td><td>Predawn asks for permission to add photos only: it can save to your library and cannot see what is in it. A result photo is only the one you pick, kept on your device.</td></tr>
 <tr><td>Calendar (optional, add only)</td><td>Adding a shoot and its leave time to your calendar when you ask.</td><td>Written to your calendar on your device. Predawn cannot read your calendar.</td></tr>
 <tr><td>Purchases</td><td>Unlocking Predawn Pro.</td><td>Handled by Apple. We do not receive your name, payment details or purchase history.</td></tr>
 <tr><td>Crash reports</td><td>Fixing bugs.</td><td>Predawn sends none itself. If you have chosen to share analytics with app developers in iOS Settings, Apple may send us crash reports that do not identify you.</td></tr>
